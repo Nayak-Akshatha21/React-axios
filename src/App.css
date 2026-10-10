@@ -1,0 +1,62 @@
+body {
+  background-color: #17202a;
+}
+
+p,
+a,
+li,
+input {
+  color: white;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+
+.section-post{
+    width: 90%;
+
+    & ol{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 5px;
+
+        & li{
+            background-color: #212f3c;
+            padding: 20px;
+            list-style-position: inside;
+        }
+    }
+
+    button{
+        border-radius: 2px;
+        border: none;
+        padding: 8px;
+        letter-spacing: 1px;
+        justify-content: center;
+        width: 25%;
+        margin-right: 20px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover{
+            color: black;
+        }
+    }
+
+    .btn-edit{
+        background-color: rgb(47, 148, 63);
+        color: white;
+    }
+
+    .btn-delete{
+        background-color: rgb(205, 55, 55);
+        color: white;
+    }
+}
