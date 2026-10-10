@@ -10,6 +10,6 @@ export const getPost = () =>{
 }
 
 //delete method
-export const deletePost = ()=>{
-    return api.delete(`/delete/${id}`);
+export const deletePost = (id)=>{
+    return api.delete(`/posts/${id}`);
 }
