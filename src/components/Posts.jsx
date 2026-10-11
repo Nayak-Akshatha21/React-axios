@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { deletePost, getPost } from "../api/PostApi";
+import Form from "./Form";
 
 export default function Posts() {
 //   console.log(getPost());
@@ -35,6 +36,9 @@ export default function Posts() {
 
   return (
     <div>
+        <section className="section-form">
+            <Form data={data} setData={setData}/>
+        </section>
         <section className="section-post">
             <ol>
                 {
