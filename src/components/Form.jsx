@@ -1,13 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { postData } from '../api/PostApi';
 
-export default function Form({data,setData}) {
+export default function Form({data,setData,updateDataApi,setUpdateDataApi}) {
 
     const[addData,setAddData]=useState({
         title:"",
         body:"",
     });
 
+    //updated data API
+    useEffect(()=>{
+        updateDataApi && setAddData({
+            title:updateDataApi.title || "",
+            body:updateDataApi.body || ""
+        })
+    },[updateDataApi])
+
+    
     const handleInputChange = (e)=>{
         const name=e.target.name;
         const value=e.target.value;

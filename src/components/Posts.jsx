@@ -7,6 +7,8 @@ export default function Posts() {
 
   const[data,setData]=useState([]);
 
+  const[updateDataApi,setUpdateDataApi]=useState({});
+
   const getPostData = async () => {
     const resp = await getPost();
     console.log(resp.data);
@@ -34,10 +36,14 @@ export default function Posts() {
     }
   }
 
+  //handle post data
+  const handleUpdatePost = (curElem) =>{
+     setUpdateDataApi(curElem);
+  }
   return (
     <div>
         <section className="section-form">
-            <Form data={data} setData={setData}/>
+            <Form data={data} setData={setData}  updateDataApi={updateDataApi} setUpdateDataApi={setUpdateDataApi}/>
         </section>
         <section className="section-post">
             <ol>
@@ -48,7 +54,7 @@ export default function Posts() {
                             <li key={id}>
                                 <p>title:{title}</p>
                                 <p>body:{body}</p>
-                                <button className="btn-edit" >EDIT</button>
+                                <button className="btn-edit" onClick={()=>handleUpdatePost(curElem)} >EDIT</button>
                                 <button className="btn-delete" onClick={() => handleDeletePost(id)}>DELETE</button>
                             </li>
                         )
